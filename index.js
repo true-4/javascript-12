@@ -38,3 +38,17 @@ const rabbit = Object.create(animal2)
 rabbit.canWalk = false
 console.log(animal2.canWalk)
 console.log(rabbit.canWalk)
+
+// 5
+// Создай объект parent с полем a = 1. Создай объект child, унаследованный от parent, с полем b = 2. Пройди циклом for...in по child и выведи только его собственные поля.
+
+const parent = {
+  a: 1,
+}
+
+const child = Object.create(parent)
+child.b = 2
+
+for (const el in child) {
+  console.log(child)
+}
