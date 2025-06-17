@@ -71,5 +71,21 @@ const user1 = {
 const user2 = {}
 
 Object.setPrototypeOf(user2, user1)
-delete user1.seyHi1
+// delete user1.seyHi1
 user2.seyHi1() // ошибка Uncaught TypeError: user2.seyHi1 is not a function так как удалили метод из протатипа и его нет
+
+// 8
+// Создай объекты grandParent, parent, child. Пусть каждый наследует от предыдущего. У grandParent есть метод sayHello. Вызови child.sayHello() — он должен работать.
+
+const grandParent = {
+  sayHello() {
+    console.log('Hello')
+  }
+}
+const parenT = {}
+const chilD = {}
+
+Object.setPrototypeOf(parenT, grandParent)
+Object.setPrototypeOf(chilD, parenT)
+
+chilD.sayHello()
