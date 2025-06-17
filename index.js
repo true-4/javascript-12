@@ -101,3 +101,9 @@ const a = {
 const b = {}
 b.__proto__ = a
 b.ping()
+
+// 10
+// Создай объект list. Установи ему прототип Array.prototype. Вызови list.push(1) и выведи list.length.
+const list = Object.create(Array.prototype)
+list.push(1)
+console.log(list.length)
