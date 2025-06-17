@@ -102,8 +102,21 @@ const b = {}
 b.__proto__ = a
 b.ping()
 
-// 10
+// 10-11
 // Создай объект list. Установи ему прототип Array.prototype. Вызови list.push(1) и выведи list.length.
 const list = Object.create(Array.prototype)
 list.push(1)
 console.log(list.length)
+
+// 12
+// Напиши функцию myInstanceOf(obj, Constructor), которая проверяет, является ли объект экземпляром конструктора, аналогично оператору instanceof, но без его использования.
+// Примеры: myInstanceOf([], Array) должно вернуть true, myInstanceOf({}, Array) должно вернуть false.
+function myInstanceOf(obj, Constructor) {
+  if (obj.prototype === Constructor.__proto__) {
+    return true
+  }
+  return false
+}
+
+console.log(myInstanceOf([], Array))
+console.log(myInstanceOf({}, Array))
