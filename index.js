@@ -16,14 +16,14 @@ dog.speak()
 // Добавь в Person.prototype метод sayHi, который выводит "Привет, меня зовут <name>".
 // Создай экземпляр и вызови sayHi.
 
-function Person () {}
+function Person (name) { return this.name = name}
 
-Person.prototype.seyHi = function (name) {
-  console.log(`Привет, меня зовут ${name}`)
+Person.prototype.sayHi = function () {
+  console.log(`Привет, меня зовут ${this.name}`)
 }
 
-const user = new Person()
-user.seyHi('Vlad')
+const user = new Person('Vlad')
+user.sayHi()
 
 // 4
 // Создай объект animal с canWalk = true.
@@ -66,13 +66,13 @@ car.drive()
 // 7
 // Создай объект user1 с методом sayHi. Создай user2, унаследованный от user1. Удалите метод sayHi из user1. Что произойдет при вызове user2.sayHi()?
 const user1 = {
-  seyHi1() {console.log('Hi')}
+  sayHi1() {console.log('Hi')}
 }
 const user2 = {}
 
 Object.setPrototypeOf(user2, user1)
 // delete user1.seyHi1
-user2.seyHi1() // ошибка Uncaught TypeError: user2.seyHi1 is not a function так как удалили метод из протатипа и его нет
+user2.sayHi1() // ошибка Uncaught TypeError: user2.seyHi1 is not a function так как удалили метод из протатипа и его нет
 
 // 8
 // Создай объекты grandParent, parent, child. Пусть каждый наследует от предыдущего. У grandParent есть метод sayHello. Вызови child.sayHello() — он должен работать.
@@ -120,3 +120,13 @@ function myInstanceOf(obj, Constructor) {
 
 console.log(myInstanceOf([], Array))
 console.log(myInstanceOf({}, Array))
+
+// 13
+// Написать свой собственный метод myMap, чтобы он работал также как и встроенный метод Array.prototype.map.
+function myMap () {
+
+}
+
+
+// 14
+// Написать свой собственный метод myForEach, чтобы он работал также как и встроенный метод Array.prototype.forEach.
