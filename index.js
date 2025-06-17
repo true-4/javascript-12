@@ -62,3 +62,14 @@ const car = {}
 
 Object.setPrototypeOf(car, vehicle)
 car.drive()
+
+// 7
+// Создай объект user1 с методом sayHi. Создай user2, унаследованный от user1. Удалите метод sayHi из user1. Что произойдет при вызове user2.sayHi()?
+const user1 = {
+  seyHi1() {console.log('Hi')}
+}
+const user2 = {}
+
+Object.setPrototypeOf(user2, user1)
+delete user1.seyHi1
+user2.seyHi1() // ошибка Uncaught TypeError: user2.seyHi1 is not a function так как удалили метод из протатипа и его нет
