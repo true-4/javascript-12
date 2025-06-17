@@ -89,3 +89,15 @@ Object.setPrototypeOf(parenT, grandParent)
 Object.setPrototypeOf(chilD, parenT)
 
 chilD.sayHello()
+
+// 9
+// Создай объект a с методом ping. Создай объект b. Сделай a прототипом для b через b.__proto__ = a. Вызови b.ping().
+const a = {
+  ping() {
+    console.log('ping')
+  }
+}
+
+const b = {}
+b.__proto__ = a
+b.ping()
