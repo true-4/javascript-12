@@ -52,3 +52,13 @@ child.b = 2
 for (const el in child) {
   console.log(child)
 }
+
+// 6
+// Создай объект vehicle с методом drive. Создай пустой объект car. Сделай vehicle прототипом car через Object.setPrototypeOf. Вызови car.drive().
+const vehicle = {
+  drive() {console.log('Drive')} 
+}
+const car = {}
+
+Object.setPrototypeOf(car, vehicle)
+car.drive()
