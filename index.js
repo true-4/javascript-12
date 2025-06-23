@@ -111,22 +111,24 @@ console.log(list.length)
 // 12
 // Напиши функцию myInstanceOf(obj, Constructor), которая проверяет, является ли объект экземпляром конструктора, аналогично оператору instanceof, но без его использования.
 // Примеры: myInstanceOf([], Array) должно вернуть true, myInstanceOf({}, Array) должно вернуть false.
-function myInstanceOf(obj, Constructor) {
-  if (obj.prototype === Constructor.__proto__) {
-    return true
-  }
-  return false
-}
+
+
 
 console.log(myInstanceOf([], Array))
 console.log(myInstanceOf({}, Array))
 
 // 13
 // Написать свой собственный метод myMap, чтобы он работал также как и встроенный метод Array.prototype.map.
-function myMap () {
-
+Array.prototype.myMap = function (cb) {
+  const res = []
+  for (let i = 0; i < this.length; i++) {
+    res.push(cb(this[i], i))
+  }
+  return res
 }
 
+const numbers = [1, 2, 3, 5] 
+console.log(numbers.myMap(item => item ** 2))
 
 // 14
 // Написать свой собственный метод myForEach, чтобы он работал также как и встроенный метод Array.prototype.forEach.
