@@ -112,7 +112,16 @@ console.log(list.length)
 // Напиши функцию myInstanceOf(obj, Constructor), которая проверяет, является ли объект экземпляром конструктора, аналогично оператору instanceof, но без его использования.
 // Примеры: myInstanceOf([], Array) должно вернуть true, myInstanceOf({}, Array) должно вернуть false.
 
-
+function myInstanceOf(obj, Constructor) {
+  let proto = Constructor.prototype // Получаем прототип конструктора
+  while (obj !== null) { // Бесконечный цикл для проверки всей цепочки наследования условие выхода null
+    if (Object.getPrototypeOf(obj) === proto) { // Если полученый прототип объекта равен прототипу конструктора вернёт true
+      return true
+    }
+    obj = Object.getPrototypeOf(obj) // Переходим к прототипу объекта
+  }
+  return false // Если не нашли совпадений прототипов дойдя до null
+}
 
 console.log(myInstanceOf([], Array))
 console.log(myInstanceOf({}, Array))
