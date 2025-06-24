@@ -141,3 +141,13 @@ console.log(numbers.myMap(item => item ** 2))
 
 // 14
 // Написать свой собственный метод myForEach, чтобы он работал также как и встроенный метод Array.prototype.forEach.
+Array.prototype.myForEach = function (cb) { // этот метод ничего не возвращает. принимает в себя колбэк
+  for (let i = 0; i < this.length; i++) { // проходим циклом по длине передаваемого массива через this
+    cb(this[i], i, this) // обращаемся к колбэку и вызываем его передавая ему элемент, "ключ", ссылку на массив
+  }
+}
+
+const frutis = ['apple', 'banana', 'orange']
+frutis.myForEach(item => console.log(item))
+
+// Метод forEach в JavaScript предназначен для итерации по элементам массива или других перебираемых объектов (например, Set) и выполнения определенной функции для каждого элемента.
