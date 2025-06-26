@@ -113,12 +113,12 @@ console.log(list.length)
 // Примеры: myInstanceOf([], Array) должно вернуть true, myInstanceOf({}, Array) должно вернуть false.
 
 function myInstanceOf(obj, Constructor) {
-  let proto = Constructor.prototype // Получаем прототип конструктора
-  while (obj !== null) { // Бесконечный цикл для проверки всей цепочки наследования условие выхода null
-    if (Object.getPrototypeOf(obj) === proto) { // Если полученый прототип объекта равен прототипу конструктора вернёт true
+  let proto = Object.getPrototypeOf(obj) // Получаем прототип конструктора
+  while (proto !== null) { // Бесконечный цикл для проверки всей цепочки наследования условие выхода null
+    if (Constructor.prototype === proto) { // Если полученый прототип объекта равен прототипу конструктора вернёт true
       return true
     }
-    obj = Object.getPrototypeOf(obj) // Переходим к прототипу объекта
+    proto = Object.getPrototypeOf(proto) // Переходим к прототипу объекта
   }
   return false // Если не нашли совпадений прототипов дойдя до null
 }
